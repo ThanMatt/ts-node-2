@@ -19,4 +19,4 @@ mongoose.connection.once('open', () => {
   console.log('MongoDB connection: success')
 })
 
-console.log('test')
+console.log('boo')
