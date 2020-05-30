@@ -1,4 +1,4 @@
-FROM node:12
+FROM node:14-alpine
 
 WORKDIR /usr/src/app
 
@@ -10,9 +10,9 @@ RUN yarn install
 
 RUN yarn global add nodemon
 
-RUN yarn global add typescript
+RUN yarn global add concurrently
 
-RUN yarn global add ts-node
+RUN yarn global add typescript
 
 COPY . .
 

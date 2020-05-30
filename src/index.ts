@@ -1,22 +1,31 @@
-import express from 'express'
-import cors from 'cors'
-import mongoose from 'mongoose'
+import express, { Response, Request } from 'express'
+import path from 'path'
+import 'reflect-metadata'
+import { ApolloServer } from 'apollo-server-express'
+// import { UserResolver } from './graphql/resolvers/UserResolver'
+;(async () => {
+  const app = express()
 
-const app = express()
+  app.get('/', (_, res: Response) => {
+    res.status(200).json({ message: 'Hello' })
+  })
 
-app.use(express.urlencoded({ extended: false }))
+  const apolloServer = new ApolloServer({
+    typeDefs: `
+    type Query {
+      hello: String!
+    }
+    `,
+    resolvers: {
+      Query: {
+        hello: () => 'hello world'
+      }
+    }
+  })
 
-app.use(cors())
+  apolloServer.applyMiddleware({ app })
 
-mongoose.connect(process.env.MONGO_URL || 'mongodb://db:27017/mauch_bot', {
-  useNewUrlParser: true,
-  useFindAndModify: false,
-  reconnectTries: 30,
-  reconnectInterval: 500
-})
-
-mongoose.connection.once('open', () => {
-  console.log('MongoDB connection: success')
-})
-
-console.log('boo')
+  app.listen(4000, () => {
+    console.log('Express server started')
+  })
+})()
