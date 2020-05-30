@@ -1,8 +1,8 @@
 {
-  "name": "pawful-api",
+  "name": "ts-node-2",
   "version": "1.0.0",
   "main": "index.ts",
-  "author": "Aethan Matthew Ilagan",
+  "author": "Aethan Matthew Ilagan (ThanMatt)",
   "license": "MIT",
   "scripts": {
     "start:build": "tsc --watch",
