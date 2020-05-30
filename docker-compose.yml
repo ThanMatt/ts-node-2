@@ -15,7 +15,7 @@ services:
     environment:
       POSTGRES_PASSWORD: postgres
       POSTGRES_USER: postgres
-      POSTGRES_DB: pawful-db
+      POSTGRES_DB: your-name-db
       POSTGRES_HOST: db
     volumes:
       - /var/lib/postgresql/data
