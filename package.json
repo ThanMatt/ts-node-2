@@ -1,12 +1,12 @@
 {
   "name": "ts-node-2",
   "version": "1.0.0",
-  "main": "index.ts",
+  "main": "index.js",
   "author": "Aethan Matthew Ilagan (ThanMatt)",
   "license": "MIT",
   "scripts": {
     "start:build": "tsc --watch",
-    "start:run": "nodemon dist/index.js",
+    "start:run": "nodemon dist/src/index.js",
     "start": "concurrently yarn:start:*"
   },
   "dependencies": {
